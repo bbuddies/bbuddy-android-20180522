@@ -2,6 +2,7 @@ package com.odde.bbuddy.util;
 
 import com.odde.bbuddy.budget.viewmodel.Budget;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +45,10 @@ public class BudgetUtil {
 
     public String getBudget(Date dateStart, Date dateEnd) throws ParseException {
 
+        if(dateStart.after(dateEnd)){
+            return "0.0";
+        }
+
         Calendar c1 = Calendar.getInstance();
         c1.setTime(dateStart);
 
@@ -57,7 +62,6 @@ public class BudgetUtil {
 
         Double Sum = 0.0;
         for (Budget bg : allBudgets) {
-
 
             Calendar b1 = Calendar.getInstance();
             b1.setTime(dfMonth.parse(bg.getMonth()));
@@ -98,9 +102,11 @@ public class BudgetUtil {
 
                 float dayCount = ((float) diff / (24 * 60 * 60 * 1000))+1;
 
-                Double budgetPerDay =  Double.parseDouble(bg.getBudget())/c1.getActualMaximum(Calendar.DAY_OF_MONTH);
+                DecimalFormat roundFormat = new DecimalFormat("#");
 
-                Sum += dayCount * budgetPerDay;
+                Double budgetPerDay =  Double.parseDouble(bg.getBudget())/cal1.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+                Sum += Double.valueOf(roundFormat.format(dayCount)) * budgetPerDay;
             }
 
 
