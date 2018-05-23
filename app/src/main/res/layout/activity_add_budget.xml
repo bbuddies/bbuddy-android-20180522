@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://robobinding.org/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.odde.bbuddy.budget.view.AddBudgetActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Budget"
+            android:textSize="40sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/textDateHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YYYY/MM" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/MonthError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editMonth"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/textDateHint"
+                bind:text="${month}" />
+        </android.support.design.widget.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/textBudgetHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Budget($)" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/BudgetError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editBudget"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/textBudgetHint"
+                bind:text="${budget}" />
+        </android.support.design.widget.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="SAVE"
+            bind:onClick="add" />
+    </RelativeLayout>
+
+</android.widget.LinearLayout>

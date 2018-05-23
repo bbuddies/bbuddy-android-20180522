@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.odde.bbuddy.account.view.AccountsActivity;
 import com.odde.bbuddy.account.view.AddAccountActivity;
+import com.odde.bbuddy.budget.view.BudgetActivity;
 import com.odde.bbuddy.dashboard.view.DashboardActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.menu_accounts:
                         setFragment(new AccountsActivity());
+                        setAdd(AddAccountActivity.class);
+                        return true;
+                    case R.id.menu_budget:
+                        setFragment(new BudgetActivity());
                         setAdd(AddAccountActivity.class);
                         return true;
                 }

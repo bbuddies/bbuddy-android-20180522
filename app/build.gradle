@@ -10,3 +10,7 @@ buildscript {
 apply from: "gradle/android.gradle"
 apply from: "gradle/versions.gradle"
 apply from: "gradle/dependencies.gradle"
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+
+}
